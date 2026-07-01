@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aria Vance — Creative Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0b0f19;
+  --bg-card:#151b2c;
+  --text:#f3f4f6;
+  --text-2:#9ca3af;
+  --text-3:#6b7280;
+  --accent:#10b981;
+  --accent-soft:rgba(16,185,129,0.1);
+  --border:#242f47;
+  --border-2:#374151;
+  --r:12px;
+  --sidebar:320px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+
+/* NAV */
+nav{background:var(--bg-card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{color:var(--text-2);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;transition:background .15s,color .15s}
+.nav-links a:hover{background:var(--bg);color:var(--text)}
+.nav-admin-btn{background:none;border:1px solid var(--border-2);color:var(--text-2);font-size:13px;padding:5px 14px;border-radius:6px;cursor:pointer;font-family:inherit}
+.nav-admin-btn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* LAYOUT */
+.layout{max-width:1200px;margin:0 auto;padding:40px 32px 80px;display:grid;grid-template-columns:var(--sidebar) 1fr;gap:40px;align-items:start}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:96px;display:flex;flex-direction:column;gap:20px}
+.profile-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px 24px;text-align:center}
+.avatar-wrap{position:relative;width:160px;height:160px;margin:0 auto 24px}
+.avatar-img{width:160px;height:160px;border-radius:24px;object-fit:cover;display:block;border:2px solid var(--border)}
+.avatar-initials{width:160px;height:160px;border-radius:24px;background:var(--accent-soft);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:48px;font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--accent)}
+.profile-name{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;margin-bottom:6px;letter-spacing:-0.02em}
+.profile-role{font-size:13px;color:var(--text-2);margin-bottom:24px}
+.profile-links{display:flex;flex-direction:column;gap:8px}
+.profile-link{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text-2);text-decoration:none;padding:10px 14px;border-radius:8px;border:1px solid var(--border);background:var(--bg);transition:all .15s}
+.profile-link:hover{border-color:var(--accent);color:var(--text);background:var(--accent-soft)}
+.profile-link svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+.edu-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.edu-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
+.edu-degree{font-size:13px;font-weight:600;margin-bottom:4px}
+.edu-school{font-size:12px;color:var(--text-2);margin-bottom:12px}
+.edu-cgpa{display:inline-block;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:600;padding:4px 12px;border-radius:6px}
+
+/* MAIN CONTENT */
+.content{display:flex;flex-direction:column;gap:32px;min-width:0}
+.section-card{background:var(--bg-card);border:1px solid var(--border);border-radius:20px;padding:32px}
+.section-label{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
+.skill-group{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
+.skill-group-label{font-size:11px;font-weight:600;color:var(--text-2);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.skill-tag{background:var(--bg-card);border:1px solid var(--border);color:var(--text);font-size:11px;padding:3px 8px;border-radius:4px}
+
+/* EXPERIENCE */
+.exp-item{display:flex;gap:24px;padding-bottom:24px}
+.exp-item:last-child{padding-bottom:0}
+.exp-item+.exp-item{border-top:1px solid var(--border);padding-top:24px}
+.exp-left{flex-shrink:0;width:110px}
+.exp-period{font-size:12px;color:var(--text-3);font-weight:600;font-family:'Space Grotesk',sans-serif}
+.exp-right{flex:1;min-width:0}
+.exp-role{font-size:15px;font-weight:600;margin-bottom:2px}
+.exp-meta{font-size:12px;color:var(--text-2);margin-bottom:12px}
+.exp-bullets{padding-left:16px;display:flex;flex-direction:column;gap:6px}
+.exp-bullets li{font-size:13px;color:var(--text-2)}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.project-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px;display:flex;flex-direction:column;transition:transform .2s, border-color .2s}
+.project-card:hover{transform:translateY(-2px);border-color:var(--border-2)}
+.proj-icon-wrap{width:36px;height:36px;background:var(--accent-soft);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.proj-icon-wrap svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.project-name{font-size:14px;font-weight:600;margin-bottom:6px}
+.project-desc{font-size:12px;color:var(--text-2);line-height:1.6;flex:1;margin-bottom:14px}
+.project-tags{display:flex;flex-wrap:wrap;gap:4px}
+.project-tag{background:var(--bg-card);border:1px solid var(--border);color:var(--text-2);font-size:10px;padding:2px 6px;border-radius:4px}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.cert-item{display:flex;align-items:center;gap:14px;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:14px}
+.cert-icon-wrap{width:32px;height:32px;border-radius:6px;background:var(--bg-card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cert-icon-wrap svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2}
+.cert-name{font-size:13px;font-weight:500}
+.cert-issuer{font-size:11px;color:var(--text-3)}
+
+/* FOOTER */
+footer{text-align:center;padding:32px;color:var(--text-3);font-size:12px;border-top:1px solid var(--border);margin-top:auto;background:var(--bg-card)}
+
+/* MODAL CONFIG OVERRIDES */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;align-items:center;justify-content:center;padding:24px}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg-card);border-radius:20px;border:1px solid var(--border);width:100%;max-width:540px;max-height:90vh;overflow-y:auto;padding:28px;color:var(--text)}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.modal-title{font-size:16px;font-weight:600;font-family:'Space Grotesk',sans-serif}
+.modal-close{background:none;border:none;cursor:pointer;color:var(--text-3);font-size:24px;padding:0 6px}
+.modal-close:hover{color:var(--text)}
+
+/* ADMIN CONFIG FORMS */
+#auth-screen label{display:block;font-size:12px;margin-bottom:6px;color:var(--text-2)}
+#auth-screen input{width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:13px;background:var(--bg);color:var(--text);outline:none}
+#auth-screen input:focus{border-color:var(--accent)}
+#auth-error{color:#ef4444;font-size:12px;margin-top:6px;display:none}
+#auth-submit{margin-top:16px;width:100%;background:var(--accent);color:var(--bg);border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+
+#editor-screen{display:none}
+.editor-tabs{display:flex;gap:4px;margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:0;flex-wrap:wrap}
+.editor-tab{padding:8px 14px;font-size:12px;font-weight:500;color:var(--text-2);cursor:pointer;border-bottom:2px solid transparent}
+.editor-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+.editor-panel{display:none}.editor-panel.active{display:block}
+.ef{margin-bottom:14px}
+.ef label{display:block;font-size:11px;color:var(--text-2);margin-bottom:6px}
+.ef input,.ef textarea{width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:6px;font-size:12px;background:var(--bg);color:var(--text);outline:none;resize:vertical;font-family:inherit}
+.ef input:focus,.ef textarea:focus{border-color:var(--accent)}
+.eli{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:12px;margin-bottom:10px}
+.eli-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.eli-title{font-size:12px;font-weight:600}
+.btn-rm{background:none;border:none;cursor:pointer;color:var(--text-3);font-size:18px}
+.btn-rm:hover{color:#ef4444}
+.btn-add{width:100%;background:none;border:1px dashed var(--border);border-radius:8px;padding:10px;font-size:12px;color:var(--text-2);cursor:pointer;font-family:inherit}
+.btn-add:hover{border-color:var(--accent);color:var(--accent)}
+.editor-footer{display:flex;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.btn-save{flex:1;background:var(--accent);color:var(--bg);border:none;padding:10px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.btn-cancel{background:none;border:1px solid var(--border);color:var(--text-2);padding:10px 16px;border-radius:8px;font-size:13px;cursor:pointer;font-family:inherit}
+#save-status{font-size:12px;color:var(--accent);align-self:center;display:none}
+
+.avatar-upload-area{border:1px dashed var(--border);border-radius:8px;padding:16px;text-align:center;cursor:pointer;margin-bottom:12px}
+.avatar-preview-small{width:56px;height:56px;border-radius:8px;object-fit:cover;margin:0 auto 8px;display:block}
+.avatar-placeholder-small{width:56px;height:56px;border-radius:8px;background:var(--accent-soft);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--accent)}
+.upload-hint{font-size:11px;color:var(--text-3)}
+.btn-clear-avatar{background:none;border:1px solid var(--border);color:var(--text-2);font-size:11px;padding:4px 10px;border-radius:4px;cursor:pointer}
+
+@media(max-width:850px){
+  .layout{grid-template-columns:1fr;padding:24px}
+  .sidebar{position:static}
+  .projects-grid,.certs-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:520px){
+  .projects-grid,.certs-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">// aria.vance</a>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+    </ul>
+    <button class="nav-admin-btn" onclick="openAdmin()">Admin</button>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar">
+    <div class="profile-card">
+      <div class="avatar-wrap" id="avatar-wrap">
+        <div class="avatar-initials" id="avatar-initials">AV</div>
+      </div>
+      <div class="profile-name" id="profile-name">Aria Vance</div>
+      <div class="profile-role" id="profile-role">Frontend Engineer & Designer</div>
+      <div class="profile-links">
+        <a class="profile-link" id="link-email" href="mailto:aria.vance@design.dev">
+          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+          <span id="link-email-text">aria.vance@design.dev</span>
+        </a>
+        <a class="profile-link" id="link-github" href="https://github.com/aria-vance" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <span id="link-github-text">github.com/aria-vance</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="edu-card" id="edu-card">
+      <div class="edu-label">Education</div>
+      <div class="edu-degree" id="edu-degree">B.Sc. Computer Science & Design</div>
+      <div class="edu-school" id="edu-school">Stanford University, CA</div>
+      <span class="edu-cgpa" id="edu-cgpa">GPA 3.91</span>
+    </div>
+  </aside>
+
+  <main class="content">
+    <div class="section-card" id="skills">
+      <div class="section-label">Core Tech Stack</div>
+      <div class="skills-grid" id="skills-grid"></div>
+    </div>
+
+    <div class="section-card" id="experience">
+      <div class="section-label">Work Experience</div>
+      <div id="experience-list"></div>
+    </div>
+
+    <div class="section-card" id="projects">
+      <div class="section-label">Selected Projects</div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+
+    <div class="section-card" id="certifications">
+      <div class="section-label">Credentials</div>
+      <div class="certs-grid" id="certs-grid"></div>
+    </div>
+  </main>
+</div>
+
+<footer><span id="footer-text">Aria Vance · Built with Minimal Canvas Architecture</span></footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Admin login</span>
+      <button class="modal-close" onclick="closeAdmin()">×</button>
+    </div>
+
+    <div id="auth-screen">
+      <div class="ef">
+        <label>Password</label>
+        <input type="password" id="admin-pass" placeholder="Enter password (hcaM*124)" onkeydown="if(event.key==='Enter')doAuth()">
+      </div>
+      <div id="auth-error">Incorrect credentials.</div>
+      <button id="auth-submit" onclick="doAuth()">Sign in</button>
+    </div>
+
+    <div id="editor-screen">
+      <div class="editor-tabs">
+        <div class="editor-tab active" onclick="switchTab('general')">General</div>
+        <div class="editor-tab" onclick="switchTab('skills')">Skills</div>
+        <div class="editor-tab" onclick="switchTab('experience')">Experience</div>
+        <div class="editor-tab" onclick="switchTab('projects')">Projects</div>
+        <div class="editor-tab" onclick="switchTab('certs')">Certs</div>
+      </div>
+
+      <div class="editor-panel active" id="panel-general">
+        <div class="ef">
+          <label>Profile photo</label>
+          <div class="avatar-upload-area" onclick="document.getElementById('avatar-file-input').click()">
+            <input type="file" id="avatar-file-input" accept="image/*" onchange="handleAvatarUpload(event)">
+            <div id="avatar-preview-wrap">
+              <div class="avatar-placeholder-small" id="avatar-preview-placeholder">AV</div>
+            </div>
+            <div class="upload-hint">Click to upload photo</div>
+          </div>
+          <button class="btn-clear-avatar" onclick="clearAvatar(event)">Remove photo</button>
+        </div>
+        <div class="ef"><label>Full name</label><input id="e-name" type="text"></div>
+        <div class="ef"><label>Tagline / role</label><input id="e-eyebrow" type="text"></div>
+        <div class="ef"><label>Email</label><input id="e-email" type="email"></div>
+        <div class="ef"><label>GitHub URL</label><input id="e-github" type="text"></div>
+        <div class="ef"><label>Degree</label><input id="e-degree" type="text"></div>
+        <div class="ef"><label>School</label><input id="e-school" type="text"></div>
+        <div class="ef"><label>GPA status</label><input id="e-cgpa" type="text"></div>
+        <div class="ef" style="display:none"><textarea id="e-learning"></textarea></div>
+      </div>
+
+      <div class="editor-panel" id="panel-skills">
+        <div id="skills-editor-list"></div>
+        <button class="btn-add" onclick="addSkillGroup()">+ Add group</button>
+      </div>
+
+      <div class="editor-panel" id="panel-experience">
+        <div id="exp-editor-list"></div>
+        <button class="btn-add" onclick="addExpItem()">+ Add item</button>
+      </div>
+
+      <div class="editor-panel" id="panel-projects">
+        <div id="proj-editor-list"></div>
+        <button class="btn-add" onclick="addProjItem()">+ Add project</button>
+      </div>
+
+      <div class="editor-panel" id="panel-certs">
+        <div id="certs-editor-list"></div>
+        <button class="btn-add" onclick="addCertItem()">+ Add certification</button>
+      </div>
+
+      <div class="editor-footer" id="editor-footer">
+        <button class="btn-save" onclick="saveData()">Save changes</button>
+        <button class="btn-cancel" onclick="closeAdmin()">Cancel</button>
+        <span id="save-status">Saved</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+window.openAdmin = openAdmin;
+window.closeAdmin = closeAdmin;
+window.handleOverlayClick = handleOverlayClick;
+window.switchTab = switchTab;
+window.addSkillGroup = addSkillGroup;
+window.removeSkillGroup = removeSkillGroup;
+window.addExpItem = addExpItem;
+window.removeExp = removeExp;
+window.addProjItem = addProjItem;
+window.removeProj = removeProj;
+window.addCertItem = addCertItem;
+window.removeCert = removeCert;
+window.saveData = saveData;
+window.doAuth = doAuth;
+window.clearAvatar = clearAvatar;
+window.handleAvatarUpload = handleAvatarUpload;
+
+const PROJECT_ICONS = [
+  `<svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>`,
+  `<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+  `<svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>`
+];
+
+const DEFAULT_DATA = {
+  name:"Aria Vance",eyebrow:"Frontend Engineer & Designer",
+  email:"aria.vance@design.dev",github:"https://github.com/aria-vance",
+  degree:"B.Sc. Computer Science & Design",school:"Stanford University, CA",
+  cgpa:"GPA 3.91",learning:"",
+  avatar: null,
+  skills:[
+    {group:"Frontend",items:["React","Next.js","TypeScript","Tailwind CSS"]},
+    {group:"Design Tools",items:["Figma","Spline 3D","Framer Motion"]},
+    {group:"State & APIs",items:["GraphQL","Zustand","Node.js"]}
+  ],
+  experience:[
+    {role:"UI Engineer Intern",company:"Vercel",location:"Remote",period:"Summer 2025",
+     bullets:["Contributed optimizations to core layout components used across template libraries.","Helped style next-generation design-system building blocks.","Improved accessibility benchmarks across web dashboard modules."]}
+  ],
+  projects:[
+    {iconIdx:0,name:"Neomorphic Sandbox",desc:"An interactive prototyping layout generator helping UI designers test box shadows on components real-time.",tags:["Next.js","Tailwind","TypeScript"]},
+    {iconIdx:1,name:"Secure Keys Dashboard",desc:"A clean data interface mockup handling microservice auth tokens with high security and zero layout layout shifts.",tags:["React","Zustand","Web Crypto"]}
+  ],
+  certs:[
+    {name:"Advanced Interaction Design",issuer:"Interaction Design Foundation"},
+    {name:"TypeScript Core Architecture",issuer:"Frontend Masters"}
+  ]
+};
+
+function getData(){
+  try{const r=localStorage.getItem("pf_test_data");return r?JSON.parse(r):JSON.parse(JSON.stringify(DEFAULT_DATA))}
+  catch(e){return JSON.parse(JSON.stringify(DEFAULT_DATA))}
+}
+
+function initials(name){
+  return name.split(" ").filter(Boolean).slice(0,2).map(w=>w[0].toUpperCase()).join("")
+}
+
+function renderPortfolio(){
+  const d=getData();
+  document.getElementById("profile-name").textContent=d.name;
+  document.getElementById("profile-role").textContent=d.eyebrow;
+  document.getElementById("link-email").href="mailto:"+d.email;
+  document.getElementById("link-email-text").textContent=d.email;
+  document.getElementById("link-github").href=d.github;
+  document.getElementById("link-github-text").textContent=d.github.replace("https://","");
+  document.getElementById("edu-degree").textContent=d.degree;
+  document.getElementById("edu-school").textContent=d.school;
+  document.getElementById("edu-cgpa").textContent=d.cgpa;
+  document.getElementById("footer-text").textContent=d.name+" · "+d.email;
+
+  const wrap=document.getElementById("avatar-wrap");
+  wrap.innerHTML="";
+  if(d.avatar){
+    const img=document.createElement("img");
+    img.className="avatar-img";img.src=d.avatar;img.alt=d.name;
+    wrap.appendChild(img);
+  } else {
+    const div=document.createElement("div");
+    div.className="avatar-initials";div.textContent=initials(d.name);
+    wrap.appendChild(div);
+  }
+
+  const sg=document.getElementById("skills-grid");sg.innerHTML="";
+  (d.skills||[]).forEach(g=>{
+    const div=document.createElement("div");div.className="skill-group";
+    div.innerHTML=`<div class="skill-group-label">${g.group}</div><div class="skill-tags">${g.items.map(i=>`<span class="skill-tag">${i}</span>`).join("")}</div>`;
+    sg.appendChild(div);
+  });
+
+  const el=document.getElementById("experience-list");el.innerHTML="";
+  (d.experience||[]).forEach(exp=>{
+    const div=document.createElement("div");div.className="exp-item";
+    div.innerHTML=`<div class="exp-left"><div class="exp-period">${exp.period}</div></div>
+    <div class="exp-right"><div class="exp-role">${exp.role}</div><div class="exp-meta">${exp.company} · ${exp.location}</div>
+    <ul class="exp-bullets">${(exp.bullets||[]).map(b=>`<li>${b}</li>`).join("")}</ul></div>`;
+    el.appendChild(div);
+  });
+
+  const pg=document.getElementById("projects-grid");pg.innerHTML="";
+  (d.projects||[]).forEach(p=>{
+    const idx=p.iconIdx||0;
+    const div=document.createElement("div");div.className="project-card";
+    div.innerHTML=`<div class="proj-icon-wrap">${PROJECT_ICONS[idx]||PROJECT_ICONS[0]}</div>
+    <div class="project-name">${p.name}</div>
+    <div class="project-desc">${p.desc}</div>
+    <div class="project-tags">${(p.tags||[]).map(t=>`<span class="project-tag">${t}</span>`).join("")}</div>`;
+    pg.appendChild(div);
+  });
+
+  const cg=document.getElementById("certs-grid");cg.innerHTML="";
+  (d.certs||[]).forEach(c=>{
+    const div=document.createElement("div");div.className="cert-item";
+    div.innerHTML=`<div class="cert-icon-wrap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg></div>
+    <div><div class="cert-name">${c.name}</div><div class="cert-issuer">${c.issuer}</div></div>`;
+    cg.appendChild(div);
+  });
+}
+
+function openAdmin(){
+  document.getElementById("modal-overlay").classList.add("open");
+  document.getElementById("auth-screen").style.display="block";
+  document.getElementById("editor-screen").style.display="none";
+  document.getElementById("admin-pass").value="";
+  document.getElementById("auth-error").style.display="none";
+}
+function closeAdmin(){document.getElementById("modal-overlay").classList.remove("open")}
+function handleOverlayClick(e){if(e.target===document.getElementById("modal-overlay"))closeAdmin()}
+
+async function doAuth(){
+  const passwordInput = document.getElementById("admin-pass").value;
+  const errorDiv = document.getElementById("auth-error");
+  const MASTER_HASH = "e8ddb2c5fa63f154a7c19e40c45075cd37fec75168789ed9bdd3d59ae1446ccf"; // hcaM*124
+
+  const msgUint8 = new TextEncoder().encode(passwordInput);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const inputHash = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+  if (inputHash === MASTER_HASH) {
+    errorDiv.style.display="none";
+    document.getElementById("auth-screen").style.display="none";
+    document.getElementById("editor-screen").style.display="block";
+    populateEditor();
+  } else {
+    errorDiv.style.display="block";
+  }
+}
+
+function switchTab(tab){
+  const tabs=["general","skills","experience","projects","certs"];
+  document.querySelectorAll(".editor-tab").forEach((t,i)=>t.classList.toggle("active",tabs[i]===tab));
+  document.querySelectorAll(".editor-panel").forEach(p=>p.classList.remove("active"));
+  document.getElementById("panel-"+tab).classList.add("active");
+}
+
+function populateEditor(){
+  const d=getData();
+  document.getElementById("e-name").value=d.name||"";
+  document.getElementById("e-eyebrow").value=d.eyebrow||"";
+  document.getElementById("e-email").value=d.email||"";
+  document.getElementById("e-github").value=d.github||"";
+  document.getElementById("e-degree").value=d.degree||"";
+  document.getElementById("e-school").value=d.school||"";
+  document.getElementById("e-cgpa").value=d.cgpa||"";
+  updateAvatarPreview(d.avatar, d.name);
+  renderSkillsEditor(d.skills);
+  renderExpEditor(d.experience);
+  renderProjEditor(d.projects);
+  renderCertsEditor(d.certs);
+}
+
+function updateAvatarPreview(src, name){
+  const wrap=document.getElementById("avatar-preview-wrap");
+  if(src){
+    wrap.innerHTML=`<img class="avatar-preview-small" src="${src}" alt="Preview">`;
+  } else {
+    wrap.innerHTML=`<div class="avatar-placeholder-small">${initials(name||"AV")}</div>`;
+  }
+}
+
+function handleAvatarUpload(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=ev=>{
+    const d=getData();d.avatar=ev.target.result;
+    localStorage.setItem("pf_test_data",JSON.stringify(d));
+    updateAvatarPreview(ev.target.result, d.name);
+    renderPortfolio();
+  };
+  reader.readAsDataURL(file);
+}
+
+function clearAvatar(e){
+  e.stopPropagation();
+  const d=getData();d.avatar=null;
+  localStorage.setItem("pf_test_data",JSON.stringify(d));
+  updateAvatarPreview(null, d.name);
+  renderPortfolio();
+}
+
+function renderSkillsEditor(skills){
+  const el=document.getElementById("skills-editor-list");el.innerHTML="";
+  (skills||[]).forEach((g,gi)=>{
+    const div=document.createElement("div");div.className="eli";
+    div.innerHTML=`<div class="eli-header"><span class="eli-title">Group</span><button class="btn-rm" onclick="removeSkillGroup(${gi})">×</button></div>
+    <div class="ef"><input type="text" id="sg-name-${gi}" value="${g.group}"></div>
+    <div class="ef"><input type="text" id="sg-items-${gi}" value="${g.items.join(", ")}"></div>`;
+    el.appendChild(div);
+  });
+}
+function addSkillGroup(){const d=getData();d.skills.push({group:"New Group",items:["Item"]});renderSkillsEditor(d.skills)}
+function removeSkillGroup(i){const d=getData();d.skills.splice(i,1);renderSkillsEditor(d.skills)}
+
+function renderExpEditor(exp){
+  const el=document.getElementById("exp-editor-list");el.innerHTML="";
+  (exp||[]).forEach((e,i)=>{
+    const div=document.createElement("div");div.className="eli";
+    div.innerHTML=`<div class="eli-header"><span class="eli-title">${e.role}</span><button class="btn-rm" onclick="removeExp(${i})">×</button></div>
+    <div class="ef"><input type="text" id="exp-role-${i}" value="${e.role}"></div>
+    <div class="ef"><input type="text" id="exp-co-${i}" value="${e.company}"></div>
+    <div class="ef"><input type="text" id="exp-loc-${i}" value="${e.location}"></div>
+    <div class="ef"><input type="text" id="exp-period-${i}" value="${e.period}"></div>
+    <div class="ef"><textarea id="exp-bullets-${i}" rows="2">${(e.bullets||[]).join("\n")}</textarea></div>`;
+    el.appendChild(div);
+  });
+}
+function addExpItem(){const d=getData();d.experience.push({role:"Role",company:"Co",location:"Loc",period:"2026",bullets:["Detail"]});renderExpEditor(d.experience)}
+function removeExp(i){const d=getData();d.experience.splice(i,1);renderExpEditor(d.experience)}
+
+function renderProjEditor(proj){
+  const el=document.getElementById("proj-editor-list");el.innerHTML="";
+  (proj||[]).forEach((p,i)=>{
+    const div=document.createElement("div");div.className="eli";
+    div.innerHTML=`<div class="eli-header"><span class="eli-title">${p.name}</span><button class="btn-rm" onclick="removeProj(${i})">×</button></div>
+    <div class="ef"><input type="number" id="proj-icon-${i}" value="${p.iconIdx||0}" min="0" max="2" style="width:60px"></div>
+    <div class="ef"><input type="text" id="proj-name-${i}" value="${p.name}"></div>
+    <div class="ef"><textarea id="proj-desc-${i}" rows="2">${p.desc}</textarea></div>
+    <div class="ef"><input type="text" id="proj-tags-${i}" value="${(p.tags||[]).join(", ")}"></div>`;
+    el.appendChild(div);
+  });
+}
+function addProjItem(){const d=getData();d.projects.push({iconIdx:0,name:"Project",desc:"Desc.",tags:["Tag"]});renderProjEditor(d.projects)}
+function removeProj(i){const d=getData();d.projects.splice(i,1);renderProjEditor(d.projects)}
+
+function renderCertsEditor(certs){
+  const el=document.getElementById("certs-editor-list");el.innerHTML="";
+  (certs||[]).forEach((c,i)=>{
+    const div=document.createElement("div");div.className="eli";
+    div.innerHTML=`<div class="eli-header"><span class="eli-title">${c.name}</span><button class="btn-rm" onclick="removeCert(${i})">×</button></div>
+    <div class="ef"><input type="text" id="cert-name-${i}" value="${c.name}"></div>
+    <div class="ef"><input type="text" id="cert-issuer-${i}" value="${c.issuer}"></div>`;
+    el.appendChild(div);
+  });
+}
+function addCertItem(){const d=getData();d.certs.push({name:"Cert",issuer:"Issuer"});renderCertsEditor(d.certs)}
+function removeCert(i){const d=getData();d.certs.splice(i,1);renderCertsEditor(d.certs)}
+
+function saveData(){
+  const d=getData();
+  d.name=document.getElementById("e-name").value;
+  d.eyebrow=document.getElementById("e-eyebrow").value;
+  d.email=document.getElementById("e-email").value;
+  d.github=document.getElementById("e-github").value;
+  d.degree=document.getElementById("e-degree").value;
+  d.school=document.getElementById("e-school").value;
+  d.cgpa=document.getElementById("e-cgpa").value;
+
+  d.skills=[];
+  document.querySelectorAll("[id^='sg-name-']").forEach((el,i)=>{
+    d.skills.push({group:el.value,items:document.getElementById("sg-items-"+i).value.split(",").map(s=>s.trim()).filter(Boolean)});
+  });
+  d.experience=[];
+  document.querySelectorAll("[id^='exp-role-']").forEach((el,i)=>{
+    d.experience.push({role:el.value,company:document.getElementById("exp-co-"+i).value,location:document.getElementById("exp-loc-"+i).value,period:document.getElementById("exp-period-"+i).value,bullets:document.getElementById("exp-bullets-"+i).value.split("\n").map(s=>s.trim()).filter(Boolean)});
+  });
+  d.projects=[];
+  document.querySelectorAll("[id^='proj-name-']").forEach((el,i)=>{
+    d.projects.push({iconIdx:parseInt(document.getElementById("proj-icon-"+i).value)||0,name:el.value,desc:document.getElementById("proj-desc-"+i).value,tags:document.getElementById("proj-tags-"+i).value.split(",").map(s=>s.trim()).filter(Boolean)});
+  });
+  d.certs=[];
+  document.querySelectorAll("[id^='cert-name-']").forEach((el,i)=>{
+    d.certs.push({name:el.value,issuer:document.getElementById("cert-issuer-"+i).value});
+  });
+
+  localStorage.setItem("pf_test_data",JSON.stringify(d));
+  renderPortfolio();
+  const s=document.getElementById("save-status");
+  s.style.display="inline";
+  setTimeout(()=>s.style.display="none",2000);
+}
+
+renderPortfolio();
+</script>
+</body>
+</html>
