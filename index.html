@@ -179,7 +179,7 @@ footer{text-align:center;padding:32px;color:var(--text-3);font-size:12px;border-
       </div>
      </div>
      <div class="profile-name" id="profile-name">
-      Aria Vance
+      Aria
      </div>
      <div class="profile-role" id="profile-role">
       Frontend Engineer &amp; Designer
@@ -350,7 +350,7 @@ const PROJECT_ICONS = [
 ];
 
 const DEFAULT_DATA = {
-  name:"Aria Vance",eyebrow:"Frontend Engineer & Designer",
+  name:"Aria",eyebrow:"Frontend Engineer & Designer",
   email:"aria.vance@design.dev",github:"https://github.com/aria-vance",
   degree:"B.Sc. Computer Science & Design",school:"Stanford University, CA",
   cgpa:"GPA 3.91",learning:"",
@@ -365,12 +365,12 @@ const DEFAULT_DATA = {
      bullets:["Contributed optimizations to core layout components used across template libraries.","Helped style next-generation design-system building blocks.","Improved accessibility benchmarks across web dashboard modules."]}
   ],
   projects:[
-    {iconIdx:0,name:"Aria Vance",desc:"An interactive prototyping layout generator helping UI designers test box shadows on components real-time.",tags:["Next.js","Tailwind","TypeScript"]},
-    {iconIdx:1,name:"Aria Vance",desc:"A clean data interface mockup handling microservice auth tokens with high security and zero layout layout shifts.",tags:["React","Zustand","Web Crypto"]}
+    {iconIdx:0,name:"Aria",desc:"An interactive prototyping layout generator helping UI designers test box shadows on components real-time.",tags:["Next.js","Tailwind","TypeScript"]},
+    {iconIdx:1,name:"Aria",desc:"A clean data interface mockup handling microservice auth tokens with high security and zero layout layout shifts.",tags:["React","Zustand","Web Crypto"]}
   ],
   certs:[
-    {name:"Aria Vance",issuer:"Interaction Design Foundation"},
-    {name:"Aria Vance",issuer:"Frontend Masters"}
+    {name:"Aria",issuer:"Interaction Design Foundation"},
+    {name:"Aria",issuer:"Frontend Masters"}
   ]
 };
 
@@ -567,7 +567,7 @@ function renderProjEditor(proj){
     el.appendChild(div);
   });
 }
-function addProjItem(){const d=getData();d.projects.push({iconIdx:0,name:"Aria Vance",desc:"Desc.",tags:["Tag"]});renderProjEditor(d.projects)}
+function addProjItem(){const d=getData();d.projects.push({iconIdx:0,name:"Aria",desc:"Desc.",tags:["Tag"]});renderProjEditor(d.projects)}
 function removeProj(i){const d=getData();d.projects.splice(i,1);renderProjEditor(d.projects)}
 
 function renderCertsEditor(certs){
@@ -580,7 +580,7 @@ function renderCertsEditor(certs){
     el.appendChild(div);
   });
 }
-function addCertItem(){const d=getData();d.certs.push({name:"Aria Vance",issuer:"Issuer"});renderCertsEditor(d.certs)}
+function addCertItem(){const d=getData();d.certs.push({name:"Aria",issuer:"Issuer"});renderCertsEditor(d.certs)}
 function removeCert(i){const d=getData();d.certs.splice(i,1);renderCertsEditor(d.certs)}
 
 function saveData(){
