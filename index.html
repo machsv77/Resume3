@@ -1,13 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aria Vance — Creative Developer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aria Vance — Creative Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0b0f19;
@@ -157,152 +157,175 @@ footer{text-align:center;padding:32px;color:var(--text-3);font-size:12px;border-
   .nav-links{display:none}
 }
 </style>
-</head>
-<body>
-
-<nav>
-  <div class="nav-inner">
+ </head>
+ <body>
+  <nav>
+   <div class="nav-inner">
     <a href="#" class="nav-logo">// aria.vance</a>
     <ul class="nav-links">
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-    </ul>
-    <button class="nav-admin-btn" onclick="openAdmin()">Admin</button>
-  </div>
-</nav>
-
-<div class="layout">
-  <aside class="sidebar">
+     <li><a href="#skills">Skills</a></li>
+     <li><a href="#experience">Experience</a></li>
+     <li><a href="#projects">Projects</a></li>
+     <li><a href="#certifications">Certifications</a></li>
+    </ul><button class="nav-admin-btn" onclick="openAdmin()">Admin</button>
+   </div>
+  </nav>
+  <div class="layout">
+   <aside class="sidebar">
     <div class="profile-card">
-      <div class="avatar-wrap" id="avatar-wrap">
-        <div class="avatar-initials" id="avatar-initials">AV</div>
+     <div class="avatar-wrap" id="avatar-wrap">
+      <div class="avatar-initials" id="avatar-initials">
+       AV
       </div>
-      <div class="profile-name" id="profile-name">Aria Vance</div>
-      <div class="profile-role" id="profile-role">Frontend Engineer & Designer</div>
-      <div class="profile-links">
-        <a class="profile-link" id="link-email" href="mailto:aria.vance@design.dev">
-          <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-          <span id="link-email-text">aria.vance@design.dev</span>
-        </a>
-        <a class="profile-link" id="link-github" href="https://github.com/aria-vance" target="_blank">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          <span id="link-github-text">github.com/aria-vance</span>
-        </a>
-      </div>
+     </div>
+     <div class="profile-name" id="profile-name">
+      Aria Vance
+     </div>
+     <div class="profile-role" id="profile-role">
+      Frontend Engineer &amp; Designer
+     </div>
+     <div class="profile-links">
+      <a class="profile-link" id="link-email" href="mailto:aria.vance@design.dev">
+       <svg viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" />
+       </svg><span id="link-email-text">aria.vance@design.dev</span> </a> <a class="profile-link" id="link-github" href="https://github.com/aria-vance" target="_blank">
+       <svg viewBox="0 0 24 24">
+        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+       </svg><span id="link-github-text">github.com/aria-vance</span> </a>
+     </div>
     </div>
-
     <div class="edu-card" id="edu-card">
-      <div class="edu-label">Education</div>
-      <div class="edu-degree" id="edu-degree">B.Sc. Computer Science & Design</div>
-      <div class="edu-school" id="edu-school">Stanford University, CA</div>
-      <span class="edu-cgpa" id="edu-cgpa">GPA 3.91</span>
+     <div class="edu-label">
+      Education
+     </div>
+     <div class="edu-degree" id="edu-degree">
+      B.Sc. Computer Science &amp; Design
+     </div>
+     <div class="edu-school" id="edu-school">
+      Stanford University, CA
+     </div><span class="edu-cgpa" id="edu-cgpa">GPA 3.91</span>
     </div>
-  </aside>
-
-  <main class="content">
+   </aside>
+   <main class="content">
     <div class="section-card" id="skills">
-      <div class="section-label">Core Tech Stack</div>
-      <div class="skills-grid" id="skills-grid"></div>
+     <div class="section-label">
+      Core Tech Stack
+     </div>
+     <div class="skills-grid" id="skills-grid"></div>
     </div>
-
     <div class="section-card" id="experience">
-      <div class="section-label">Work Experience</div>
-      <div id="experience-list"></div>
+     <div class="section-label">
+      Work Experience
+     </div>
+     <div id="experience-list"></div>
     </div>
-
     <div class="section-card" id="projects">
-      <div class="section-label">Selected Projects</div>
-      <div class="projects-grid" id="projects-grid"></div>
+     <div class="section-label">
+      Selected Projects
+     </div>
+     <div class="projects-grid" id="projects-grid"></div>
     </div>
-
     <div class="section-card" id="certifications">
-      <div class="section-label">Credentials</div>
-      <div class="certs-grid" id="certs-grid"></div>
+     <div class="section-label">
+      Credentials
+     </div>
+     <div class="certs-grid" id="certs-grid"></div>
     </div>
-  </main>
-</div>
-
-<footer><span id="footer-text">Aria Vance · Built with Minimal Canvas Architecture</span></footer>
-
-<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal">
-    <div class="modal-header">
-      <span class="modal-title" id="modal-title">Admin login</span>
-      <button class="modal-close" onclick="closeAdmin()">×</button>
-    </div>
-
-    <div id="auth-screen">
-      <div class="ef">
-        <label>Password</label>
-        <input type="password" id="admin-pass" placeholder="Enter password (hcaM*124)" onkeydown="if(event.key==='Enter')doAuth()">
-      </div>
-      <div id="auth-error">Incorrect credentials.</div>
-      <button id="auth-submit" onclick="doAuth()">Sign in</button>
-    </div>
-
-    <div id="editor-screen">
-      <div class="editor-tabs">
-        <div class="editor-tab active" onclick="switchTab('general')">General</div>
-        <div class="editor-tab" onclick="switchTab('skills')">Skills</div>
-        <div class="editor-tab" onclick="switchTab('experience')">Experience</div>
-        <div class="editor-tab" onclick="switchTab('projects')">Projects</div>
-        <div class="editor-tab" onclick="switchTab('certs')">Certs</div>
-      </div>
-
-      <div class="editor-panel active" id="panel-general">
-        <div class="ef">
-          <label>Profile photo</label>
-          <div class="avatar-upload-area" onclick="document.getElementById('avatar-file-input').click()">
-            <input type="file" id="avatar-file-input" accept="image/*" onchange="handleAvatarUpload(event)">
-            <div id="avatar-preview-wrap">
-              <div class="avatar-placeholder-small" id="avatar-preview-placeholder">AV</div>
-            </div>
-            <div class="upload-hint">Click to upload photo</div>
-          </div>
-          <button class="btn-clear-avatar" onclick="clearAvatar(event)">Remove photo</button>
-        </div>
-        <div class="ef"><label>Full name</label><input id="e-name" type="text"></div>
-        <div class="ef"><label>Tagline / role</label><input id="e-eyebrow" type="text"></div>
-        <div class="ef"><label>Email</label><input id="e-email" type="email"></div>
-        <div class="ef"><label>GitHub URL</label><input id="e-github" type="text"></div>
-        <div class="ef"><label>Degree</label><input id="e-degree" type="text"></div>
-        <div class="ef"><label>School</label><input id="e-school" type="text"></div>
-        <div class="ef"><label>GPA status</label><input id="e-cgpa" type="text"></div>
-        <div class="ef" style="display:none"><textarea id="e-learning"></textarea></div>
-      </div>
-
-      <div class="editor-panel" id="panel-skills">
-        <div id="skills-editor-list"></div>
-        <button class="btn-add" onclick="addSkillGroup()">+ Add group</button>
-      </div>
-
-      <div class="editor-panel" id="panel-experience">
-        <div id="exp-editor-list"></div>
-        <button class="btn-add" onclick="addExpItem()">+ Add item</button>
-      </div>
-
-      <div class="editor-panel" id="panel-projects">
-        <div id="proj-editor-list"></div>
-        <button class="btn-add" onclick="addProjItem()">+ Add project</button>
-      </div>
-
-      <div class="editor-panel" id="panel-certs">
-        <div id="certs-editor-list"></div>
-        <button class="btn-add" onclick="addCertItem()">+ Add certification</button>
-      </div>
-
-      <div class="editor-footer" id="editor-footer">
-        <button class="btn-save" onclick="saveData()">Save changes</button>
-        <button class="btn-cancel" onclick="closeAdmin()">Cancel</button>
-        <span id="save-status">Saved</span>
-      </div>
-    </div>
+   </main>
   </div>
-</div>
-
-<script>
+  <footer>
+   <span id="footer-text">Aria Vance · Built with Minimal Canvas Architecture</span>
+  </footer>
+  <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+   <div class="modal">
+    <div class="modal-header">
+     <span class="modal-title" id="modal-title">Admin login</span> <button class="modal-close" onclick="closeAdmin()">×</button>
+    </div>
+    <div id="auth-screen">
+     <div class="ef">
+      <label>Password</label> <input type="password" id="admin-pass" placeholder="Enter password (hcaM*124)" onkeydown="if(event.key==='Enter')doAuth()">
+     </div>
+     <div id="auth-error">
+      Incorrect credentials.
+     </div><button id="auth-submit" onclick="doAuth()">Sign in</button>
+    </div>
+    <div id="editor-screen">
+     <div class="editor-tabs">
+      <div class="editor-tab active" onclick="switchTab('general')">
+       General
+      </div>
+      <div class="editor-tab" onclick="switchTab('skills')">
+       Skills
+      </div>
+      <div class="editor-tab" onclick="switchTab('experience')">
+       Experience
+      </div>
+      <div class="editor-tab" onclick="switchTab('projects')">
+       Projects
+      </div>
+      <div class="editor-tab" onclick="switchTab('certs')">
+       Certs
+      </div>
+     </div>
+     <div class="editor-panel active" id="panel-general">
+      <div class="ef">
+       <label>Profile photo</label>
+       <div class="avatar-upload-area" onclick="document.getElementById('avatar-file-input').click()">
+        <input type="file" id="avatar-file-input" accept="image/*" onchange="handleAvatarUpload(event)">
+        <div id="avatar-preview-wrap">
+         <div class="avatar-placeholder-small" id="avatar-preview-placeholder">
+          AV
+         </div>
+        </div>
+        <div class="upload-hint">
+         Click to upload photo
+        </div>
+       </div><button class="btn-clear-avatar" onclick="clearAvatar(event)">Remove photo</button>
+      </div>
+      <div class="ef">
+       <label>Full name</label><input id="e-name" type="text">
+      </div>
+      <div class="ef">
+       <label>Tagline / role</label><input id="e-eyebrow" type="text">
+      </div>
+      <div class="ef">
+       <label>Email</label><input id="e-email" type="email">
+      </div>
+      <div class="ef">
+       <label>GitHub URL</label><input id="e-github" type="text">
+      </div>
+      <div class="ef">
+       <label>Degree</label><input id="e-degree" type="text">
+      </div>
+      <div class="ef">
+       <label>School</label><input id="e-school" type="text">
+      </div>
+      <div class="ef">
+       <label>GPA status</label><input id="e-cgpa" type="text">
+      </div>
+      <div class="ef" style="display:none">
+       <textarea id="e-learning"></textarea>
+      </div>
+     </div>
+     <div class="editor-panel" id="panel-skills">
+      <div id="skills-editor-list"></div><button class="btn-add" onclick="addSkillGroup()">+ Add group</button>
+     </div>
+     <div class="editor-panel" id="panel-experience">
+      <div id="exp-editor-list"></div><button class="btn-add" onclick="addExpItem()">+ Add item</button>
+     </div>
+     <div class="editor-panel" id="panel-projects">
+      <div id="proj-editor-list"></div><button class="btn-add" onclick="addProjItem()">+ Add project</button>
+     </div>
+     <div class="editor-panel" id="panel-certs">
+      <div id="certs-editor-list"></div><button class="btn-add" onclick="addCertItem()">+ Add certification</button>
+     </div>
+     <div class="editor-footer" id="editor-footer">
+      <button class="btn-save" onclick="saveData()">Save changes</button> <button class="btn-cancel" onclick="closeAdmin()">Cancel</button> <span id="save-status">Saved</span>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
 window.openAdmin = openAdmin;
 window.closeAdmin = closeAdmin;
 window.handleOverlayClick = handleOverlayClick;
@@ -596,5 +619,5 @@ function saveData(){
 
 renderPortfolio();
 </script>
-</body>
+ </body>
 </html>
