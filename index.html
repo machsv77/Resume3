@@ -354,7 +354,7 @@ const DEFAULT_DATA = {
   email:"aria.vance@design.dev",github:"https://github.com/aria-vance",
   degree:"B.Sc. Computer Science & Design",school:"Stanford University, CA",
   cgpa:"GPA 3.91",learning:"",
-  avatar: null,
+  avatar: "https://machsv77.github.io/Resume3/images/profile.jpg",
   skills:[
     {group:"Frontend",items:["React","Next.js","TypeScript","Tailwind CSS"]},
     {group:"Design Tools",items:["Figma","Spline 3D","Framer Motion"]},
@@ -365,12 +365,12 @@ const DEFAULT_DATA = {
      bullets:["Contributed optimizations to core layout components used across template libraries.","Helped style next-generation design-system building blocks.","Improved accessibility benchmarks across web dashboard modules."]}
   ],
   projects:[
-    {iconIdx:0,name:"Neomorphic Sandbox",desc:"An interactive prototyping layout generator helping UI designers test box shadows on components real-time.",tags:["Next.js","Tailwind","TypeScript"]},
-    {iconIdx:1,name:"Secure Keys Dashboard",desc:"A clean data interface mockup handling microservice auth tokens with high security and zero layout layout shifts.",tags:["React","Zustand","Web Crypto"]}
+    {iconIdx:0,name:"Aria Vance",desc:"An interactive prototyping layout generator helping UI designers test box shadows on components real-time.",tags:["Next.js","Tailwind","TypeScript"]},
+    {iconIdx:1,name:"Aria Vance",desc:"A clean data interface mockup handling microservice auth tokens with high security and zero layout layout shifts.",tags:["React","Zustand","Web Crypto"]}
   ],
   certs:[
-    {name:"Advanced Interaction Design",issuer:"Interaction Design Foundation"},
-    {name:"TypeScript Core Architecture",issuer:"Frontend Masters"}
+    {name:"Aria Vance",issuer:"Interaction Design Foundation"},
+    {name:"Aria Vance",issuer:"Frontend Masters"}
   ]
 };
 
@@ -567,7 +567,7 @@ function renderProjEditor(proj){
     el.appendChild(div);
   });
 }
-function addProjItem(){const d=getData();d.projects.push({iconIdx:0,name:"Project",desc:"Desc.",tags:["Tag"]});renderProjEditor(d.projects)}
+function addProjItem(){const d=getData();d.projects.push({iconIdx:0,name:"Aria Vance",desc:"Desc.",tags:["Tag"]});renderProjEditor(d.projects)}
 function removeProj(i){const d=getData();d.projects.splice(i,1);renderProjEditor(d.projects)}
 
 function renderCertsEditor(certs){
@@ -580,7 +580,7 @@ function renderCertsEditor(certs){
     el.appendChild(div);
   });
 }
-function addCertItem(){const d=getData();d.certs.push({name:"Cert",issuer:"Issuer"});renderCertsEditor(d.certs)}
+function addCertItem(){const d=getData();d.certs.push({name:"Aria Vance",issuer:"Issuer"});renderCertsEditor(d.certs)}
 function removeCert(i){const d=getData();d.certs.splice(i,1);renderCertsEditor(d.certs)}
 
 function saveData(){
