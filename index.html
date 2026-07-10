@@ -7,8 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
-  <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  <style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg:#0b0f19;
   --bg-card:#151b2c;
@@ -155,8 +154,7 @@ footer{text-align:center;padding:32px;color:var(--text-3);font-size:12px;border-
   .projects-grid,.certs-grid{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:1fr 1fr}
   .nav-links{display:none}
-}
-</style>
+}</style>
  </head>
  <body>
   <nav>
@@ -172,20 +170,21 @@ footer{text-align:center;padding:32px;color:var(--text-3);font-size:12px;border-
   </nav>
   <div class="layout">
    <aside class="sidebar">
-    <div class="profile-card">
+    <div class="profile-card" style="position: relative; overflow: hidden;">
+     <img src="images/profile.jpg" alt="Profile picture" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit;" data-injected-by-resume-editor="true">
      <div class="avatar-wrap" id="avatar-wrap">
       <div class="avatar-initials" id="avatar-initials">
        AV
       </div>
      </div>
      <div class="profile-name" id="profile-name">
-      Aria
+      Aria Vance
      </div>
      <div class="profile-role" id="profile-role">
       Frontend Engineer &amp; Designer
      </div>
      <div class="profile-links">
-      <a class="profile-link" id="link-email" href="mailto:aria.vance@design.dev">
+      <a class="profile-link" id="link-email" href="mailto:aria.vance@design.dev.com">
        <svg viewBox="0 0 24 24">
         <rect x="2" y="4" width="20" height="16" rx="2" /><polyline points="2,4 12,13 22,4" />
        </svg><span id="link-email-text">aria.vance@design.dev</span> </a> <a class="profile-link" id="link-github" href="https://github.com/aria-vance" target="_blank">
@@ -350,16 +349,12 @@ const PROJECT_ICONS = [
 ];
 
 const DEFAULT_DATA = {
-  name:"Aria",eyebrow:"Frontend Engineer & Designer",
+  name:"Aria Vance",eyebrow:"Frontend Engineer & Designer",
   email:"aria.vance@design.dev",github:"https://github.com/aria-vance",
   degree:"B.Sc. Computer Science & Design",school:"Stanford University, CA",
   cgpa:"GPA 3.91",learning:"",
   avatar: "https://machsv77.github.io/Resume3/images/profile.jpg",
-  skills:[
-    {group:"Frontend",items:["React","Next.js","TypeScript","Tailwind CSS"]},
-    {group:"Design Tools",items:["Figma","Spline 3D","Framer Motion"]},
-    {group:"State & APIs",items:["GraphQL","Zustand","Node.js"]}
-  ],
+  skills:[{"group":"Languages","items":[]},{"group":"Frameworks","items":["React","Next.js","TypeScript"]},{"group":"Design Tools","items":["Figma","Spline 3D","Framer Motion"]},{"group":"State & APIs","items":["GraphQL","Zustand","Node.js"]}],
   experience:[
     {role:"UI Engineer Intern",company:"Vercel",location:"Remote",period:"Summer 2025",
      bullets:["Contributed optimizations to core layout components used across template libraries.","Helped style next-generation design-system building blocks.","Improved accessibility benchmarks across web dashboard modules."]}
